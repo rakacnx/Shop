@@ -1,0 +1,262 @@
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAKA - ขายเสื้อผ้าส่งออก</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600;700&amp;display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>RAKA</h1>
+                <p class="tagline">ขายเสื้อผ้าส่งออก</p>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#about">เลือกซื้อ</a></li>
+                    <li><a href="#products">เกี่ยวกับ</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact">ติดต่อ</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <div class="search-box">
+                    <input type="text" placeholder="ค้นหา...">
+                    <button>🔍</button>
+                </div>
+                <button class="btn-login">ล็อกอิน</button>
+                <button class="btn-cart">🛒</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>เกี่ยวกับ</h2>
+            <p class="hero-text">
+                จุดเริ่มต้นของร้าน : ร้านของเราเกิดจากความฝันเล็ก ๆ ของผู้ก่อตั้ง
+                ซึ่งเป็นผู้ที่ชื่นชอบการออกแบบและตัดเย็บเสื้อผ้าอยู่แล้ว
+                เราเริ่มต้นจากความตั้งใจอยากมีธุรกิจเป็นของตัวเอง และอยากสร้างสรรค์สินค้าที่มีเอกลักษณ์
+                แตกต่างจากเสื้อผ้าทั่วไปในตลาด
+                ในขณะนั้น ตลาดเสื้อผ้าเต็มไปด้วยการแข่งขันสูง
+                โดยเฉพาะสินค้าประเภทเสื้อยืดที่ต้องแข่งกันทั้งด้านราคาและวัตถุดิบ เราจึงตัดสินใจไม่เดินตามกระแส
+                แต่เลือกใช้ ผ้าฝ้าย แล้วนำมาดัดเเปลงเป็นผ้าสโตนเเละผ้าสาลูวัสดุที่มีคุณภาพดี ใส่สบาย
+                และได้รับความนิยมในหมู่นักท่องเที่ยวต่างชาติ โดยเฉพาะในประเทศที่มีอากาศหนาวเย็น
+                ซึ่งเหมาะกับการใส่ผ้าฝ้าย และเมืองร้อนที่เหมาะกับผ้าสาลู
+                จากจุดเริ่มต้นเล็ก ๆ พร้อมกับความตั้งใจและความรักในงานผ้า ร้านของเราจึงค่อย ๆ เติบโตขึ้น
+                จนกลายเป็นร้านที่ลูกค้าหลายคนทั้งชาวไทยและต่างชาติให้ความไว้วางใจมาจนถึงทุกวันนี้
+            </p>
+        </div>
+    </section>
+
+    <!-- Products Section - สำหรับรูป Modal (1000 × 1000 px) สำหรับรูปการ์ดสินค้า (800 × 800 px)-->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">สินค้าแนะนำ</h2>
+            <div class="product-grid">
+
+                <!-- Product 1 -->
+                <div class="product-card" onclick="openProductModal(
+                    'เสื้อผ้าฝ้าย', 
+                    '฿350.00', 
+                    ['#754c4a', '#6b7c3f'], 
+                    'img/product1/PD1800_800.jpg'
+                )">
+                    <div class="product-badge">ขายดี</div>
+                    <div class="product-image">
+                        <img src="img\product1\PD1800_800.jpg" alt="เสื้อผ้าฝ้าย" loading="lazy"
+                            style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <h3 class="product-name">เสื้อผ้าฝ้าย</h3>
+                    <p class="product-price">฿350.00</p>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card" onclick="openProductModal(
+                    'นี้คือสินค้า', 
+                    '฿300.00', 
+                    ['#754c4a', '#6b7c3f'], 
+                    'img/product1/PD2800_800.jpg'
+                )">
+                    <div class="product-badge">ขายดี</div>
+                    <div class="product-image">
+                        <img src="img/product1/PD2800_800.jpg" alt="นี้คือสินค้า" loading="lazy"
+                            style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <h3 class="product-name">นี้คือสินค้า</h3>
+                    <p class="product-price">฿300.00</p>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card" onclick="openProductModal(
+                    'นี้คือสินค้า', 
+                    '฿300.00', 
+                    ['#754c4a', '#6b7c3f'], 
+                    'img/product1/PD3800_800.jpg'
+                )">
+                    <div class="product-badge">ขายดี</div>
+                    <div class="product-image">
+                        <img src="img/product1/PD3800_800.jpg" alt="นี้คือสินค้า" loading="lazy"
+                            style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <h3 class="product-name">นี้คือสินค้า</h3>
+                    <p class="product-price">฿300.00</p>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="product-card" onclick="openProductModal(
+                    'นี้คือสินค้า', 
+                    '฿300.00', 
+                    ['#111113', '#876061'], 
+                    'img/product1/PD4800_800.jpg'
+                )">
+                    <div class="product-badge">ขายดี</div>
+                    <div class="product-image">
+                        <img src="img/product1/PD4800_800.jpg" alt="นี้คือสินค้า" loading="lazy"
+                            style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <h3 class="product-name">นี้คือสินค้า</h3>
+                    <p class="product-price">฿300.00</p>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="product-card" onclick="openProductModal(
+                    'นี้คือสินค้า', 
+                    '฿300.00', 
+                    ['#111113', '#876061'], 
+                    'img/product1/PD5800_800.jpg'
+                )">
+                    <div class="product-badge">ใหม่</div>
+                    <div class="product-image">
+                        <img src="img/product1/PD5800_800.jpg" alt="นี้คือสินค้า" loading="lazy"
+                            style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <h3 class="product-name">นี้คือสินค้า</h3>
+                    <p class="product-price">฿300.00</p>
+                </div>
+
+                <!-- Product 6 -->
+                <div class="product-card" onclick="openProductModal(
+                    'นี้คือสินค้า', 
+                    '฿300.00', 
+                    ['#111113', '#876061'], 
+                    'img/product6.jpg'
+                )">
+                    <div class="product-badge">Hot</div>
+                    <div class="product-image">
+                        <img src="img/product6.jpg" alt="นี้คือสินค้า" loading="lazy"
+                            style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <h3 class="product-name">นี้คือสินค้า</h3>
+                    <p class="product-price">฿300.00</p>
+                </div>
+
+                <!-- Product 7 -->
+                <div class="product-card" onclick="openProductModal(
+                    'นี้คือสินค้า', 
+                    '฿300.00', 
+                    ['#6ba3ff', '#4a90ff', '#2d6b5f'], 
+                    'img/product7.jpg'
+                )">
+                    <div class="product-badge">ขายดี</div>
+                    <div class="product-image">
+                        <img src="img/product7.jpg" alt="นี้คือสินค้า" loading="lazy"
+                            style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <h3 class="product-name">นี้คือสินค้า</h3>
+                    <p class="product-price">฿300.00</p>
+                </div>
+
+                <!-- Product 8 -->
+                <div class="product-card" onclick="openProductModal(
+                    'นี้คือสินค้า', 
+                    '฿300.00', 
+                    ['#d4a5f5', '#e8c4ff', '#ff8a5b'], 
+                    'img/product8.jpg'
+                )">
+                    <div class="product-badge">ใหม่</div>
+                    <div class="product-image">
+                        <img src="img/product8.jpg" alt="นี้คือสินค้า" loading="lazy"
+                            style="width:100%;height:100%;object-fit:cover;">
+                    </div>
+                    <h3 class="product-name">นี้คือสินค้า</h3>
+                    <p class="product-price">฿300.00</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeProductModal()">×</span>
+            <div class="modal-body">
+                <div class="modal-image-section">
+                    <div id="modalProductImage" class="modal-product-image">
+                    </div>
+                </div>
+                <div class="modal-info-section">
+                    <h2 id="modalProductName" class="modal-product-name">นี้คือสินค้า</h2>
+                    <p id="modalProductPrice" class="modal-product-price">฿300.00</p>
+                    <p class="modal-badge">New arrival</p>
+
+                    <div class="color-selection">
+                        <p class="selection-label">COLOUR - <span id="selectedColorName">เลือกสี</span></p>
+                        <div id="colorOptions" class="color-options">
+                            <!-- Color options will be inserted here -->
+                        </div>
+                    </div>
+
+
+
+                    <button class="btn-add-to-bag">ADD TO BAG</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>การจัดส่งและคืนสินค้า</h4>
+                    <p><a href="#">นโยบายของร้าน</a></p>
+                    <p><a href="#">ข้อกำหนดการใช้งาน</a></p>
+                </div>
+                <div class="footer-col">
+                    <h4>ติดต่อ</h4>
+                    <p>โทร: 02-123-4567</p>
+                </div>
+                <div class="footer-col">
+                    <h4>ติดตามเรา</h4>
+                    <p><a href="#">Facebook</a></p>
+                    <p><a href="#">Instagram</a></p>
+                    <p><a href="#">Pinterest</a></p>
+                </div>
+            </div>
+            <div class="newsletter">
+                <p class="newsletter-title">สมัครรับข่าวสาร ไม่พลาดทุกข่าวอัปเดต</p>
+                <div class="newsletter-form">
+                    <input type="email" placeholder="อีเมล">
+                    <button class="btn-subscribe">สมัครเลย</button>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2023 โดย RAKA ภูมิใจสร้างสรรค์โดย <a href="#">RAKA.com</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
