@@ -1,4 +1,5 @@
-/* Final script: modal, countdown, color options, and selected color name */
+/* --- RAKA Script (แก้ไขให้ลดราคาเฉพาะสินค้าที่กำหนด) --- */
+
 function updateSelectedColorName(color) {
   const selectedColorName = document.getElementById('selectedColorName');
   const colorNames = {
@@ -34,25 +35,35 @@ function openProductModal(productName, productPriceStr, productColors, productIm
   const colorContainer = document.getElementById('modalColorOptions');
 
   modalProductName.textContent = productName;
-  modalProductImage.innerHTML = '<img src="'+productImageSrc+'" alt="'+productName+'" style="width:100%;height:100%;object-fit:contain;">';
+  modalProductImage.innerHTML = `<img src="${productImageSrc}" alt="${productName}" style="width:100%;height:100%;object-fit:contain;">`;
 
-  const productEl = document.querySelector('[data-name="'+productName+'"]');
+  const productEl = document.querySelector(`[data-name="${productName}"]`);
   let discount = 0;
   let priceNum = 0;
+
   if (productEl) {
     if (productEl.dataset.discount) discount = parseInt(productEl.dataset.discount);
     if (productEl.dataset.price) priceNum = parseFloat(productEl.dataset.price);
   }
+
   priceNum = Math.floor(priceNum);
   const newPrice = Math.floor(priceNum * (100 - discount) / 100);
 
+  // แสดงราคาตามส่วนลด
   if (discount > 0) {
-    modalProductPrice.innerHTML = '\n      <span class="modal-old-price">฿'+priceNum+'</span>\n      <span class="modal-new-price">฿'+newPrice+'</span>\n      <span class="modal-discount">-'+discount+'%</span>\n    ';
+    modalProductPrice.innerHTML = `
+      <span class="modal-old-price">฿${priceNum}</span>
+      <span class="modal-new-price">฿${newPrice}</span>
+      <span class="modal-discount">-${discount}%</span>
+    `;
+    countdownEl.style.display = 'block';
+    startModalCountdown(productName);
   } else {
-    modalProductPrice.innerHTML = '<span class="modal-new-price">฿'+priceNum+'</span>';
+    modalProductPrice.innerHTML = `<span class="modal-new-price">฿${priceNum}</span>`;
+    countdownEl.style.display = 'none';
   }
 
-  // render colors
+  // แสดงตัวเลือกสี
   if (colorContainer) {
     colorContainer.innerHTML = '';
     const colors = Array.isArray(productColors) ? productColors : (productColors ? [productColors] : []);
@@ -64,12 +75,11 @@ function openProductModal(productName, productPriceStr, productColors, productIm
         btn.type = 'button';
         btn.setAttribute('data-color', c);
         btn.addEventListener('click', function() {
-          document.querySelectorAll('.color-option').forEach(x=>x.classList.remove('active'));
+          document.querySelectorAll('.color-option').forEach(x => x.classList.remove('active'));
           btn.classList.add('active');
           updateSelectedColorName(c);
         });
         colorContainer.appendChild(btn);
-        // select first by default
         if (idx === 0) {
           btn.classList.add('active');
           updateSelectedColorName(c);
@@ -80,24 +90,16 @@ function openProductModal(productName, productPriceStr, productColors, productIm
     }
   }
 
-  // countdown
-  if (countdownEl) {
-    countdownEl.style.background = 'linear-gradient(90deg, #ff3d00 0%, #ff8a00 100%)';
-    countdownEl.style.color = '#fff';
-    startModalCountdown(productName);
-  }
-
   modal.style.display = 'block';
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-  // close modal
   const modal = document.getElementById('productModal');
   const closeBtn = document.querySelector('.close');
-  if (closeBtn) closeBtn.addEventListener('click', ()=> modal.style.display='none');
-  window.addEventListener('click', (e)=>{ if(e.target===modal) modal.style.display='none'; });
+  if (closeBtn) closeBtn.addEventListener('click', () => modal.style.display = 'none');
+  window.addEventListener('click', e => { if (e.target === modal) modal.style.display = 'none'; });
 
-  // attach listeners to product cards
+  // คลิกเปิดสินค้า
   document.querySelectorAll('.product-card').forEach(card => {
     const productName = card.dataset.name || 'สินค้า';
     const productPrice = card.dataset.price || '0';
@@ -105,49 +107,65 @@ document.addEventListener('DOMContentLoaded', function() {
     const imageSrc = imageEl ? imageEl.src : '';
     let colors = [];
     if (card.dataset.colors) {
-      try { colors = JSON.parse(card.dataset.colors); } catch(e){ colors = []; }
+      try { colors = JSON.parse(card.dataset.colors); } catch (e) { colors = []; }
     }
-    card.addEventListener('click', ()=> openProductModal(productName, productPrice, colors, imageSrc) );
+    card.addEventListener('click', () => openProductModal(productName, productPrice, colors, imageSrc));
   });
 
-  // render grid prices and badges
+  // ✅ แสดงส่วนลดเฉพาะสินค้าที่มี data-discount เท่านั้น
   document.querySelectorAll('.product-card').forEach(card => {
     const discount = parseInt(card.dataset.discount || 0);
     const priceEl = card.querySelector('.product-price');
     if (!priceEl) return;
+
     const raw = card.dataset.price || '0';
     let priceNum = parseFloat(raw) || 0;
     priceNum = Math.floor(priceNum);
-    const newPrice = Math.floor(priceNum * (100 - discount) / 100);
-    priceEl.innerHTML = '\n      <span class="old-price">฿'+priceNum+'</span>\n      <span class="new-price">฿'+newPrice+'</span>\n    ';
-    if (!card.querySelector('.product-badge.flash-sale')) {
-      const badge = document.createElement('div');
-      badge.className = 'product-badge flash-sale';
-      badge.textContent = 'ลด '+discount+'%';
-      card.prepend(badge);
+
+    if (discount > 0) {
+      const newPrice = Math.floor(priceNum * (100 - discount) / 100);
+      priceEl.innerHTML = `
+        <span class="old-price">฿${priceNum}</span>
+        <span class="new-price">฿${newPrice}</span>
+      `;
+      let badge = card.querySelector('.product-badge.flash-sale');
+      if (!badge) {
+        badge = document.createElement('div');
+        badge.className = 'product-badge flash-sale';
+        card.prepend(badge);
+      }
+      badge.textContent = 'ลด ' + discount + '%';
     } else {
-      const b = card.querySelector('.product-badge.flash-sale');
-      if (b) b.textContent = 'ลด '+discount+'%';
+      priceEl.innerHTML = `<span class="new-price">฿${priceNum}</span>`;
+      const oldBadge = card.querySelector('.product-badge.flash-sale');
+      if (oldBadge) oldBadge.remove();
     }
   });
 });
 
 function startModalCountdown(productName) {
-  const productEl = document.querySelector('[data-name="'+productName+'"]');
+  const productEl = document.querySelector(`[data-name="${productName}"]`);
   const countdownEl = document.getElementById('modalCountdown');
   if (!productEl || !productEl.dataset.saleEnd || !countdownEl) return;
+
   const end = new Date(productEl.dataset.saleEnd).getTime();
-  const update = ()=>{
+
+  const update = () => {
     const now = Date.now();
     const diff = end - now;
-    if (diff <= 0) { countdownEl.textContent = 'หมดโปรโมชั่นแล้ว'; countdownEl.style.background = '#999'; return; }
-    const hours = Math.floor(diff / (1000*60*60));
-    const minutes = Math.floor((diff % (1000*60*60)) / (1000*60));
-    const seconds = Math.floor((diff % (1000*60)) / 1000);
-    countdownEl.textContent = 'เหลือเวลา '+String(hours).padStart(2,'0')+':'+String(minutes).padStart(2,'0')+':'+String(seconds).padStart(2,'0');
+    if (diff <= 0) {
+      countdownEl.textContent = 'หมดโปรโมชั่นแล้ว';
+      countdownEl.style.background = '#999';
+      return;
+    }
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    countdownEl.textContent = `เหลือเวลา ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
   };
+
   update();
-  const interval = setInterval(update,1000);
+  const interval = setInterval(update, 1000);
   const modal = document.getElementById('productModal');
-  modal.addEventListener('click', ()=> clearInterval(interval), { once: true });
+  modal.addEventListener('click', () => clearInterval(interval), { once: true });
 }
