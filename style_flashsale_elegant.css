@@ -1339,3 +1339,341 @@ Extra Small Phone (max-width: 360px)
     box-shadow: 0 4px 24px rgba(255, 138, 0, 0.35);
   }
 }
+
+/* ✅ สูงเกือบเต็มหน้าจอ */
+
+.model-item img:hover {
+  transform: scale(1.02);
+  filter: brightness(1);
+}
+
+.model-center {
+  text-align: center;
+  padding: 0 30px;
+  z-index: 5;
+}
+
+.model-center h2 {
+  font-size: 38px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.model-center p {
+  font-size: 18px;
+  color: #555;
+  line-height: 1.6;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+/* ✅ เพิ่มเส้นตกแต่งบางๆ เพื่อแบ่งพื้นที่ */
+.model-center::before,
+.model-center::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, #ff6b4a, #ff8a00);
+  margin: 20px auto;
+  border-radius: 2px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .model-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .model-item img {
+    height: auto;
+    max-height: 500px;
+    border-radius: 12px;
+  }
+
+  .model-center {
+    padding: 20px;
+  }
+}
+
+/* ✅ ป้องกันเบลอทะลุขอบแต่ไม่ตัด layout */
+
+
+.model-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.6fr 1fr;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  gap: 0;
+  box-sizing: border-box;
+}
+
+.model-item {
+  position: relative;
+}
+
+.model-item img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  height: auto;
+  max-height: 80vh;
+  object-fit: cover;
+  border-radius: 0;
+  display: block;
+  filter: brightness(0.95);
+  transition: transform 0.4s ease, filter 0.4s ease;
+  flex-shrink: 0;
+  will-change: transform, filter;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.model-item.left img {
+  -webkit-mask-image: linear-gradient(to right, black 70%, transparent 100%);
+  mask-image: linear-gradient(to right, black 70%, transparent 100%);
+}
+
+.model-item.right img {
+  -webkit-mask-image: linear-gradient(to left, black 70%, transparent 100%);
+  mask-image: linear-gradient(to left, black 70%, transparent 100%);
+}
+
+.model-item img:hover {
+  transform: scale(1.02);
+  filter: brightness(1);
+}
+
+.model-showcase::before,
+.model-showcase::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.model-showcase::before {
+  left: 0;
+  background: linear-gradient(
+    to right,
+    #ffffff 0%,
+    rgba(255, 255, 255, 0.9) 10%,
+    rgba(255, 255, 255, 0.5) 25%,
+    transparent 60%
+  );
+}
+
+.model-showcase::after {
+  right: 0;
+  background: linear-gradient(
+    to left,
+    #ffffff 0%,
+    rgba(255, 255, 255, 0.9) 10%,
+    rgba(255, 255, 255, 0.5) 25%,
+    transparent 60%
+  );
+}
+
+.model-center {
+  text-align: center;
+  padding: 0 30px;
+  z-index: 5;
+}
+
+.model-center h2 {
+  font-size: 38px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.model-center p {
+  font-size: 18px;
+  color: #555;
+  line-height: 1.6;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+.model-center::before,
+.model-center::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, #ff6b4a, #ff8a00);
+  margin: 20px auto;
+  border-radius: 2px;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .model-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .model-item img {
+    aspect-ratio: auto;
+    height: auto;
+    max-height: 500px;
+    border-radius: 12px;
+  }
+
+  .model-center {
+    padding: 20px;
+  }
+}
+
+
+/* ======================================================
+   🌿 MODEL SHOWCASE – Soft White Edge (No Blur)
+   ✨ Keep soft white fade | Remove blur | Editorial style
+====================================================== */
+
+.model-showcase {
+  width: 100%;
+  position: relative;
+  background: #fff;
+  overflow: hidden;
+  padding: 60px 0 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* --- Layout --- */
+.model-grid {
+  display: grid;
+  grid-template-columns: 1fr minmax(360px, 0.7fr) 1fr;
+  align-items: center;
+  justify-content: center;
+  max-width: 1600px;
+  width: 100%;
+  gap: 0;
+}
+
+/* --- Model Images --- */
+.model-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.model-item img {
+  width: 100%;
+  height: 70vh;
+  object-fit: cover;
+  transition: transform 0.6s ease, filter 0.5s ease;
+  filter: brightness(0.95);
+}
+
+.model-item img:hover {
+  transform: scale(1.04);
+  filter: brightness(1);
+}
+
+/* --- Soft white edges (no blur) --- */
+.model-showcase::before,
+.model-showcase::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* --- Center Editorial Text --- */
+.model-center {
+  text-align: center;
+  padding: 40px 30px;
+  position: relative;
+  background: rgba(255, 255, 255, 0.85);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.model-center h2 {
+  font-size: 40px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #111;
+  text-transform: uppercase;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.model-center h2::before,
+.model-center h2::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 50px;
+  height: 2px;
+  background: #000;
+}
+
+.model-center h2::before {
+  left: -70px;
+}
+
+.model-center h2::after {
+  right: -70px;
+}
+
+.model-center p {
+  font-size: 18px;
+  color: #444;
+  line-height: 1.8;
+  margin: 15px auto 0;
+  max-width: 380px;
+  font-family: "Helvetica Neue", sans-serif;
+}
+
+/* --- Accent Line Under Text --- */
+.model-center::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #ff7a18, #ffb347);
+  margin: 25px auto 0;
+  border-radius: 2px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+  .model-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .model-item img {
+    height: auto;
+    max-height: 380px;
+  }
+
+  .model-center {
+    padding: 30px 20px;
+  }
+
+  .model-center h2 {
+    font-size: 28px;
+  }
+
+  .model-center h2::before,
+  .model-center h2::after {
+    display: none;
+  }
+
+  .model-center p {
+    font-size: 16px;
+  }
+}
