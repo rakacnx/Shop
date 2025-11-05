@@ -7,7 +7,7 @@
     <title>RAKA - ขายเสื้อผ้าส่งออก</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="style_flashsale_elegant.css" />
+    <link rel="stylesheet" href="style.css" />
 
     <!-- ฟอนต์ -->
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;600;700&display=swap" rel="stylesheet" />
@@ -17,7 +17,8 @@
 
     <!-- 🌟 Open Graph (Facebook, LINE, Discord, IG DMs ใช้ชุดนี้) -->
     <meta property="og:title" content="RAKA - เสื้อผ้าส่งออกคุณภาพดี" />
-    <meta property="og:description" content="ร้าน RAKA จำหน่ายเสื้อผ้าฝ้ายแท้ แฮนด์เมด ส่งออกจากเชียงใหม่ พร้อมโปรโมชัน Flash Sale!" />
+    <meta property="og:description"
+        content="ร้าน RAKA จำหน่ายเสื้อผ้าฝ้ายแท้ แฮนด์เมด ส่งออกจากเชียงใหม่ พร้อมโปรโมชัน Flash Sale!" />
 
     <!-- ✅ ชี้ไปยังโลโก้ในโฟลเดอร์ img/product1 -->
     <meta property="og:image" content="https://rakacnx.github.io/Shop/img/product1/logo.png" />
@@ -86,12 +87,28 @@
             </p>
         </div>
     </section>
+    <section class="model-showcase">
+        <div class="model-grid">
+            <div class="model-item left">
+                <img src="M1.jpg" alt="นางแบบฝั่งซ้าย" />
+            </div>
+
+            <div class="model-center">
+                <h2>คอลเลกชันใหม่ RAKA</h2>
+                <p>ผ้าฝ้ายแท้ แฮนด์เมดจากเชียงใหม่ — ดีไซน์เรียบง่าย ใส่สบายทุกฤดู</p>
+            </div>
+
+            <div class="model-item right">
+                <img src="M2.jpg" alt="นางแบบฝั่งขวา" />
+            </div>
+        </div>
+    </section>
     <!-- Products Section -->
     <section class="products" id="products">
         <div class="container">
             <h2 class="section-title">สินค้าแนะนำ</h2>
             <div class="product-grid">
-                
+
                 <!-- Product 1 -->
                 <div class="product-card" data-colors='["#000000", "#ff0000", "#1e90ff", "#8a2be2"]'
                     data-name="เสื้อคลุมผ้าสโตน" data-price="850"
@@ -161,8 +178,7 @@
                 </div>
 
                 <!-- Product 7 -->
-                <div class="product-card" data-colors='["#876061", "#4a5a2f"]' data-name="เดรสผ้าสาลู"
-                    data-price="500"
+                <div class="product-card" data-colors='["#876061", "#4a5a2f"]' data-name="เดรสผ้าสาลู" data-price="500"
                     onclick="openProductModal('เดรสผ้าสาลู', '฿500', ['#876061', '#4a5a2f'], 'img/product1/PD7800_800.jpg')">
                     <div class="product-image">
                         <img alt="เดรสผ้าสาลู" src="img/product1/PD7800_800.jpg" />
@@ -172,8 +188,7 @@
                 </div>
 
                 <!-- Product 8 -->
-                <div class="product-card" data-colors='["#ff0000", "#6ba3ff"]' data-name="เดรสผ้าสาลู"
-                    data-price="500"
+                <div class="product-card" data-colors='["#ff0000", "#6ba3ff"]' data-name="เดรสผ้าสาลู" data-price="500"
                     onclick="openProductModal('เดรสผ้าสาลู', '฿500', ['#ff0000', '#6ba3ff'], 'img/product1/PD8800_800.jpg')">
                     <div class="product-image">
                         <img alt="เดรสผ้าสาลู" src="img/product1/PD8800_800.jpg" />
@@ -183,8 +198,7 @@
                 </div>
 
                 <!-- Product 9 -->
-                <div class="product-card" data-colors='["#2d6b5f", "#d4a5f5"]' data-name="เดรสผ้าสาลู"
-                    data-price="500"
+                <div class="product-card" data-colors='["#2d6b5f", "#d4a5f5"]' data-name="เดรสผ้าสาลู" data-price="500"
                     onclick="openProductModal('เดรสผ้าสาลู', '฿500', ['#2d6b5f', '#d4a5f5'], 'img/product1/PD9800_800.jpg')">
                     <div class="product-image">
                         <img alt="เดรสผ้าสาลู" src="img/product1/PD9800_800.jpg" />
@@ -205,8 +219,7 @@
                 </div>
 
                 <!-- Product 11 -->
-                <div class="product-card" data-colors='["#ff8a5b", "#4a90ff"]' data-name="เดรสผ้าสาลู"
-                    data-price="500"
+                <div class="product-card" data-colors='["#ff8a5b", "#4a90ff"]' data-name="เดรสผ้าสาลู" data-price="500"
                     onclick="openProductModal('เดรสผ้าสาลู', '฿500', ['#ff8a5b', '#4a90ff'], 'img/product1/PD11800_800.jpg')">
                     <div class="product-image">
                         <img alt="เดรสผ้าสาลู" src="img/product1/PD11800_800.jpg" />
@@ -216,8 +229,7 @@
                 </div>
 
                 <!-- Product 12 -->
-                <div class="product-card" data-colors='["#111113", "#ff6b4a"]' data-name="เดรสผ้าสาลู"
-                    data-price="500"
+                <div class="product-card" data-colors='["#111113", "#ff6b4a"]' data-name="เดรสผ้าสาลู" data-price="500"
                     onclick="openProductModal('เดรสผ้าสาลู', '฿500', ['#111113', '#ff6b4a'], 'img/product1/PD12800_800.jpg')">
                     <div class="product-image">
                         <img alt="เดรสผ้าสาลู" src="img/product1/PD12800_800.jpg" />
@@ -238,8 +250,7 @@
                 </div>
 
                 <!-- Product 14 -->
-                <div class="product-card" data-colors='["#6b7c3f", "#8a2be2"]' data-name="เดรสผ้าสาลู"
-                    data-price="500"
+                <div class="product-card" data-colors='["#6b7c3f", "#8a2be2"]' data-name="เดรสผ้าสาลู" data-price="500"
                     onclick="openProductModal('เดรสผ้าสาลู', '฿500', ['#6b7c3f', '#8a2be2'], 'img/product1/PD14800_800.jpg')">
                     <div class="product-image">
                         <img alt="เดรสผ้าสาลู" src="img/product1/PD14800_800.jpg" />
@@ -260,8 +271,7 @@
                 </div>
 
                 <!-- Product 16 -->
-                <div class="product-card" data-colors='["#6ba3ff", "#2a2e35"]' data-name="เดรสผ้าสาลู"
-                    data-price="500"
+                <div class="product-card" data-colors='["#6ba3ff", "#2a2e35"]' data-name="เดรสผ้าสาลู" data-price="500"
                     onclick="openProductModal('เดรสผ้าสาลู', '฿500', ['#6ba3ff', '#2a2e35'], 'img/product1/PD16800_800.jpg')">
                     <div class="product-image">
                         <img alt="เดรสผ้าสาลู" src="img/product1/PD16800_800.jpg" />
@@ -271,8 +281,7 @@
                 </div>
 
                 <!-- Product 17 -->
-                <div class="product-card" data-colors='["#754c4a", "#ff8a5b"]' data-name="เดรสผ้าสาลู"
-                    data-price="500"
+                <div class="product-card" data-colors='["#754c4a", "#ff8a5b"]' data-name="เดรสผ้าสาลู" data-price="500"
                     onclick="openProductModal('เดรสผ้าสาลู', '฿500', ['#754c4a', '#ff8a5b'], 'img/product1/PD17800_800.jpg')">
                     <div class="product-image">
                         <img alt="เดรสผ้าสาลู" src="img/product1/PD17800_800.jpg" />
