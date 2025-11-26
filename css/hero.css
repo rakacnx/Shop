@@ -1,0 +1,45 @@
+/* ======================================================
+   🌟 HERO SECTION STYLES (hero.css)
+   ------------------------------------------------------
+   ส่วนแบนเนอร์หลักของเว็บไซต์
+   ====================================================== */
+
+.hero {
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    padding: 80px 0;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.hero-text {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 16px;
+    line-height: 1.8;
+    color: #555;
+}
+
+/* Responsive Hero */
+@media (max-width: 767px) {
+    .hero {
+        padding: 40px 0;
+    }
+
+    .hero h2 {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+
+    .hero-text {
+        font-size: 13px;
+        line-height: 1.6;
+        max-width: 90%;
+    }
+}

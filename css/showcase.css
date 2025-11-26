@@ -1,0 +1,199 @@
+/* ======================================================
+   📸 ORGANIC SHOWCASE (showcase.css)
+   ------------------------------------------------------
+   ดีไซน์แบบ Organic Arch Style (ทรงซุ้มประตู)
+   ลดความแข็งด้วยเส้นโค้งและการจัดวางแบบซ้อนทับ
+   ====================================================== */
+
+.model-showcase {
+    padding: 100px 0;
+    background-color: rgba(249, 249, 249, 0.5);
+    /* พื้นหลังสีครีมอ่อนๆ โปร่งแสง */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Grain Texture (ลายกระดาษสาบางๆ) */
+.model-showcase::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+    opacity: 0.4;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.model-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+    /* ชิดกันเพื่อให้ซ้อนทับได้ */
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Model Image Card */
+.model-item {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 3/4.5;
+    /* สูงขึ้นอีกนิด */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+    transition: all 0.6s ease;
+}
+
+/* 🌟 Arch Shapes (ทรงซุ้มประตู) */
+.model-item.left {
+    border-radius: 200px 200px 0 0;
+    /* โค้งบนเหมือนประตู */
+    transform: rotate(-2deg) translateY(20px);
+    /* เอียงนิดๆ ให้ดูขี้เล่น */
+    margin-right: -40px;
+    /* ดันไปทางขวาให้เกยกัน */
+    z-index: 1;
+}
+
+.model-item.right {
+    border-radius: 0 0 200px 200px;
+    /* โค้งล่างกลับหัว */
+    transform: rotate(2deg) translateY(-20px);
+    margin-left: -40px;
+    /* ดันไปทางซ้ายให้เกยกัน */
+    z-index: 1;
+}
+
+/* รูปภาพ */
+.model-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.5s ease;
+    filter: sepia(10%) contrast(105%);
+    /* โทนอุ่นๆ */
+}
+
+/* Hover Effects */
+.model-item:hover {
+    transform: scale(1.02) rotate(0deg);
+    /* คืนรูปตรงเมื่อชี้ */
+    z-index: 3;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+}
+
+.model-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Center Content */
+.model-center {
+    text-align: center;
+    padding: 60px 40px;
+    background: rgba(255, 255, 255, 0.6);
+    /* พื้นหลังขาวจางๆ โปร่งแสงมากขึ้น */
+    backdrop-filter: blur(15px);
+    /* เบลอฉากหลัง */
+    border-radius: 200px;
+    /* ทรงวงรีแนวตั้ง */
+    z-index: 2;
+    /* ลอยทับรูป */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.model-center h2 {
+    font-family: 'Prompt', sans-serif;
+    font-size: 48px;
+    font-weight: 300;
+    margin-bottom: 15px;
+    color: #222;
+    line-height: 1;
+}
+
+.model-center h2 span {
+    display: block;
+    font-family: serif;
+    font-style: italic;
+    font-size: 20px;
+    color: #8a6d5b;
+    /* สีน้ำตาลทอง */
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+.model-center p {
+    font-family: 'Prompt', sans-serif;
+    font-size: 15px;
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    max-width: 300px;
+}
+
+/* ปุ่ม Shop Now */
+.btn-shop-collection {
+    display: inline-block;
+    padding: 12px 35px;
+    background-color: #222;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-shop-collection:hover {
+    background-color: #8a6d5b;
+    /* เปลี่ยนเป็นสีน้ำตาลทอง */
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .model-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        max-width: 500px;
+    }
+
+    .model-item.left,
+    .model-item.right {
+        border-radius: 150px 150px 0 0;
+        /* ปรับเป็นโค้งบนหมดในมือถือ */
+        transform: none;
+        margin: 0;
+        aspect-ratio: 4/5;
+    }
+
+    .model-center {
+        order: -1;
+        border-radius: 20px;
+        min-height: auto;
+        padding: 40px 20px;
+        background: transparent;
+        box-shadow: none;
+        border: none;
+        backdrop-filter: none;
+    }
+
+    .model-center h2 {
+        font-size: 36px;
+    }
+}

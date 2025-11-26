@@ -1,0 +1,150 @@
+/* ======================================================
+   🌟 HEADER STYLES (header.css)
+   ------------------------------------------------------
+   ส่วนหัวของเว็บไซต์ เมนู และช่องค้นหา
+   ====================================================== */
+
+.header {
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 20px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+/* Navigation Menu */
+.nav ul {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav a {
+    font-size: 16px;
+    font-weight: 400;
+    transition: color 0.3s;
+}
+
+.nav a:hover {
+    color: #4a90ff;
+}
+
+/* Header Actions (Search, Cart, Login) */
+.header-actions {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.search-box {
+    display: flex;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.search-box input {
+    padding: 8px 12px;
+    border: none;
+    outline: none;
+    width: 200px;
+    font-family: 'Prompt', sans-serif;
+}
+
+.search-box button {
+    padding: 8px 15px;
+    border: none;
+    background-color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-box button:hover {
+    background-color: #f5f5f5;
+}
+
+.btn-login,
+.btn-cart {
+    padding: 8px 20px;
+    border: 1px solid #333;
+    background-color: #fff;
+    cursor: pointer;
+    border-radius: 4px;
+    font-family: 'Prompt', sans-serif;
+    font-weight: 400;
+    transition: all 0.3s;
+}
+
+.btn-login:hover,
+.btn-cart:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Responsive Header */
+@media (max-width: 767px) {
+    .header {
+        padding: 12px 0;
+    }
+
+    .header .container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav {
+        width: 100%;
+    }
+
+    .nav ul {
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .nav a {
+        font-size: 13px;
+    }
+
+    .header-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .search-box {
+        flex: 1;
+        min-width: 150px;
+    }
+
+    .search-box input {
+        width: 100%;
+        padding: 6px 10px;
+        font-size: 13px;
+    }
+
+    .search-box button {
+        padding: 6px 10px;
+        font-size: 12px;
+    }
+
+    .btn-cart i {
+        font-size: 18px;
+        color: #333;
+        vertical-align: middle;
+        transition: color 0.3s;
+    }
+
+    .btn-cart:hover i {
+        color: #fff;
+    }
+}

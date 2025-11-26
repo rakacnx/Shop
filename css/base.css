@@ -1,0 +1,66 @@
+/* ======================================================
+   🧱 BASE STYLES (base.css)
+   ------------------------------------------------------
+   ไฟล์พื้นฐานสำหรับ Reset ค่าต่างๆ และโครงสร้างหลัก
+   ====================================================== */
+
+body {
+    font-family: 'Prompt', sans-serif;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    /* Premium Mesh Gradient Background - Optimized */
+    background-color: #fdfbf7;
+    background-image:
+        radial-gradient(at 80% 0%, hsla(189, 100%, 56%, 0.08) 0px, transparent 50%),
+        radial-gradient(at 0% 50%, hsla(355, 100%, 93%, 0.08) 0px, transparent 50%),
+        radial-gradient(at 80% 50%, hsla(340, 100%, 76%, 0.08) 0px, transparent 50%),
+        radial-gradient(at 0% 100%, hsla(22, 100%, 77%, 0.08) 0px, transparent 50%),
+        radial-gradient(at 80% 100%, hsla(242, 100%, 70%, 0.08) 0px, transparent 50%),
+        radial-gradient(at 0% 0%, hsla(343, 100%, 76%, 0.08) 0px, transparent 50%);
+    background-size: 200% 200%;
+    animation: gradientAnimation 20s ease infinite;
+    color: #333;
+    min-height: 100vh;
+}
+
+@keyframes gradientAnimation {
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* การเลื่อนหน้าจอแบบนุ่มนวล */
+html {
+    scroll-behavior: smooth;
+}
+
+/* กล่องคอนเทนเนอร์หลักสำหรับจัดกึ่งกลาง */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ล้างค่า Link */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Responsive สำหรับ Mobile */
+@media (max-width: 767px) {
+    body {
+        font-size: 14px;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+}

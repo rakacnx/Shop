@@ -1,0 +1,166 @@
+/* ======================================================
+   🎨 TYPOGRAPHY ART (typography.css)
+   ------------------------------------------------------
+   ไฟล์สำหรับตกแต่งตัวอักษรให้เป็นงานศิลปะ (Text Art)
+   เน้นความสวยงาม มีมิติ แต่ยังคงความอ่านง่าย
+   ====================================================== */
+
+/* ------------------------------------------------------
+   1. โลโก้ร้าน (Logo Art)
+   ------------------------------------------------------ */
+.logo h1 {
+    font-family: 'Prompt', sans-serif;
+    font-size: 42px;
+    /* เพิ่มขนาดให้ใหญ่ขึ้น */
+    font-weight: 800;
+    /* ตัวหนาพิเศษ */
+    letter-spacing: 4px;
+    /* เพิ่มระยะห่างระหว่างตัวอักษรให้ดูแพง */
+    text-transform: uppercase;
+    /* ตัวพิมพ์ใหญ่ทั้งหมด */
+
+    /* เทคนิคไล่สีตัวอักษร (Gradient Text) */
+    background: linear-gradient(45deg, #1a1a1a 0%, #555 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* เงาแบบนุ่มนวล (Soft Shadow) */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+
+    position: relative;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.logo h1:hover {
+    transform: scale(1.05);
+    /* ขยายเล็กน้อยเมื่อเอาเมาส์ชี้ */
+}
+
+/* คำขวัญใต้โลโก้ */
+.tagline {
+    font-family: 'Prompt', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    /* กระจายตัวอักษร */
+    color: #888;
+    margin-top: -5px;
+    text-transform: uppercase;
+}
+
+/* ------------------------------------------------------
+   2. หัวข้อหลัก (Section Headings)
+   ------------------------------------------------------ */
+.section-title,
+.hero h2,
+.model-center h2 {
+    font-family: 'Prompt', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    text-align: center;
+    position: relative;
+    margin-bottom: 60px;
+    color: #222;
+    letter-spacing: 1px;
+}
+
+/* เส้นขีดตกแต่งใต้หัวข้อ (Decorative Underline) */
+.section-title::after,
+.hero h2::after,
+.model-center h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(to right, #000, #999);
+    /* ไล่สีเส้น */
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+/* ------------------------------------------------------
+   3. เมนูบาร์ (Navigation Art)
+   ------------------------------------------------------ */
+.nav a {
+    font-family: 'Prompt', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #555;
+    position: relative;
+    padding: 5px 0;
+}
+
+/* เอฟเฟกต์ขีดเส้นวิ่งเมื่อเอาเมาส์ชี้ (Hover Line Animation) */
+.nav a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #000;
+    visibility: hidden;
+    transform: scaleX(0);
+    transition: all 0.3s ease-in-out;
+}
+
+.nav a:hover::before {
+    visibility: visible;
+    transform: scaleX(1);
+}
+
+.nav a:hover {
+    color: #000;
+}
+
+/* ------------------------------------------------------
+   4. ชื่อสินค้า (Product Titles)
+   ------------------------------------------------------ */
+.product-name {
+    font-family: 'Prompt', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    letter-spacing: 0.5px;
+    margin-bottom: 5px;
+    transition: color 0.3s;
+}
+
+.product-card:hover .product-name {
+    color: #000;
+    /* สีเข้มขึ้นเมื่อชี้ที่การ์ด */
+}
+
+/* ราคาสินค้า */
+.product-price {
+    font-family: 'Prompt', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #000;
+    letter-spacing: 0.5px;
+}
+
+/* ------------------------------------------------------
+   5. ข้อความ Hero (Hero Text)
+   ------------------------------------------------------ */
+.hero-text {
+    font-family: 'Prompt', sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 2;
+    /* เพิ่มระยะห่างบรรทัดให้อ่านสบายตา */
+    color: #444;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* เน้นคำสำคัญใน Hero Text (ถ้ามี span หรือ strong) */
+.hero-text strong {
+    font-weight: 600;
+    color: #000;
+    border-bottom: 1px solid #ddd;
+}
